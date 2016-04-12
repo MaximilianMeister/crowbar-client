@@ -44,21 +44,6 @@ module Crowbar
 
         long_desc <<-LONGDESC
           `check` will perform sanity checks on the server.
-        LONGDESC
-
-        def check
-          Command::Server::Check.new(
-            *command_params
-          ).execute
-        rescue => e
-          catch_errors(e)
-        end
-
-        desc "status",
-          "Show the sanity check status of the server"
-
-        long_desc <<-LONGDESC
-          `status` will show the sanity check status of the server
 
           With --format <format> option you can choose an output format
           with the available options table, json or plain. You can also
@@ -99,8 +84,8 @@ module Crowbar
           banner: "<filter>",
           desc: "Filter by criteria, display only data that contains filter"
 
-        def status
-          Command::Server::Status.new(
+        def check
+          Command::Server::Check.new(
             *command_params
           ).execute
         rescue => e

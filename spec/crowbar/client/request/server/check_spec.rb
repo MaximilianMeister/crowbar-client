@@ -14,18 +14,37 @@
 # limitations under the License.
 #
 
-require_relative "../../../../../spec_helper"
+require_relative "../../../../spec_helper"
 
-describe "Crowbar::Client::Command::Server::Check" do
-  include_context "command_context"
-
-  it_behaves_like "a command class", true do
+describe "Crowbar::Client::Request::Server::Check" do
+  it_behaves_like "a request class", true do
     subject do
-      ::Crowbar::Client::Command::Server::Check.new(
-        stdin,
-        stdout,
-        stderr
+      ::Crowbar::Client::Request::Server::Check.new(
+        attrs
       )
+    end
+
+    let!(:attrs) do
+      {}
+    end
+
+    let!(:params) do
+      {}
+    end
+
+    let!(:method) do
+      :post
+    end
+
+    let!(:url) do
+      "sanity/check"
+    end
+
+    let!(:headers) do
+      {
+        "Content-Type" => "application/json",
+        "Accept" => "application/json"
+      }
     end
   end
 end

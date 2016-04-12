@@ -24,9 +24,7 @@ module Crowbar
         autoload :Api,
           File.expand_path("../server/api", __FILE__)
         autoload :Check,
-          File.expand_path("../server/sanity/check", __FILE__)
-        autoload :Status,
-          File.expand_path("../server/sanity/status", __FILE__)
+          File.expand_path("../server/check", __FILE__)
       end
     end
   end
